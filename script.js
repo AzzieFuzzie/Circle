@@ -111,5 +111,5 @@ if (typeof Storage !== 'undefined') {
 
 clear.addEventListener('click', () => {
   window.localStorage.clear();
-  alert('Please refresh page to reset');
+  alert('Please refresh page to complete reset');
 });
