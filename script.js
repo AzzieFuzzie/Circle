@@ -38,10 +38,10 @@ class Circle {
 let CANVAS_WIDTH = window.innerWidth;
 let CANVAS_HEIGHT = window.innerHeight;
 
-// window.addEventListener('resize', () => {
-//   CANVAS_WIDTH = window.innerWidth;
-//   CANVAS_HEIGHT = window.innerHeight;
-// });
+window.addEventListener('resize', () => {
+  CANVAS_WIDTH = window.innerWidth;
+  CANVAS_HEIGHT = window.innerHeight;
+});
 
 const canvas = document.getElementById('canvas');
 
@@ -111,5 +111,5 @@ if (typeof Storage !== 'undefined') {
 
 clear.addEventListener('click', () => {
   window.localStorage.clear();
-  alert('Please Refresh page to reset');
+  alert('Please refresh page to reset');
 });
