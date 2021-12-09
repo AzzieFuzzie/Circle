@@ -1,14 +1,14 @@
 let names = [
   'Apple',
-  'Pineappple',
+  'Pineapple',
   'Pear',
   'Peach',
   'Strawberry',
-  ' Orange',
+  'Orange',
   'Lemon',
   'Blueberry',
-  ' Watermelon',
-  ' Plum',
+  'Watermelon',
+  'Plum',
 ];
 
 // Variable Selectors
