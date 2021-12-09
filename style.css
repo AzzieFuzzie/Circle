@@ -24,7 +24,7 @@ form {
   height: 100%;
 }
 
-#clear {
+.clear-container {
   position: absolute;
   bottom: 20px;
   left: 10px;
