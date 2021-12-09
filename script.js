@@ -109,8 +109,7 @@ if (typeof Storage !== 'undefined') {
   console.log('Storage Unavailable');
 }
 
-// window.localStorage.clear();
-
-// clear.addEventListener('click', () => {
-//   circleRadius = localStorage.radius = 15;
-// });
+clear.addEventListener('click', () => {
+  window.localStorage.clear();
+  alert('Please Refresh page to reset');
+});
