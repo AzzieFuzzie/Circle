@@ -56,8 +56,8 @@ canvas.style.setProperty('height', CANVAS_HEIGHT + 'px');
 const ctx = canvas.getContext('2d');
 let circleRadius = localStorage.radius;
 let namesSubmitted = localStorage.names;
-let nameCount = 0;
-const maximumNames = 150;
+let nameCount = namesSubmitted;
+const maximumNames = 5;
 
 // Circle
 const circle0 = new Circle({
@@ -77,10 +77,10 @@ form.addEventListener('submit', (event) => {
       circleRadius = localStorage.radius = parseInt(circle0.radius) + 5;
       console.log(circleRadius);
       circle0.radius = circleRadius;
-      //   nameCount = namesSubmitted;
-      //   nameCount += 1;
-      //   namesSubmitted = localStorage.names = parseInt(nameCount) + 1;
-      //   console.log(`${nameCount} Names Submitted`);
+      nameCount = parseInt(nameCount) + 1;
+      namesSubmitted = localStorage.names = parseInt(nameCount);
+      nameCount = namesSubmitted;
+      console.log(`${nameCount} Names Submitted`);
     } else if (maximumNames === namesSubmitted) {
       console.log('Maximum Names Submitted');
     }
