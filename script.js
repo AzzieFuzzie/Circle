@@ -15,6 +15,7 @@ const names = [
 const input = document.getElementById('text-input');
 const form = document.querySelector('form');
 const clear = document.getElementById('clear');
+const namesSubmittedP = document.getElementById('namesSubmitted-p');
 
 // Class constructor for circle creation
 class Circle {
@@ -55,34 +56,34 @@ canvas.style.setProperty('height', CANVAS_HEIGHT + 'px');
 // Variables
 const ctx = canvas.getContext('2d');
 let circleRadius = localStorage.radius;
-let namesSubmitted = localStorage.names;
-let nameCount = namesSubmitted;
+let nameCount = localStorage.getItem('namesSubmitted');
 const maximumNames = 5;
 
 // Circle
 const circle0 = new Circle({
-  x: canvas.width / 2 + 150,
-  y: canvas.height / 2 + 8,
+  x: canvas.width / 2,
+  y: canvas.height / 2,
   radius: circleRadius,
   color: 'black',
 });
 
 let oldTime = 0;
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
   names.forEach((name) => {
     if (input.value === name) {
-      circle0.radius = parseInt(circle0.radius) + 5;
-      circleRadius = localStorage.radius = parseInt(circle0.radius) + 5;
+      circle0.radius = parseInt(circle0.radius) + 3;
+      circleRadius = localStorage.radius = parseInt(circle0.radius) + 3;
       console.log(circleRadius);
       circle0.radius = circleRadius;
-      nameCount = parseInt(nameCount) + 1;
-      namesSubmitted = localStorage.names = parseInt(nameCount);
-      nameCount = namesSubmitted;
-      console.log(`${nameCount} Names Submitted`);
-    } else if (maximumNames === namesSubmitted) {
+      nameCount = Number(nameCount) + +1;
+      localStorage.setItem('namesSubmitted', nameCount);
+      namesSubmittedP.innerHTML = nameCount;
+      console.log(localStorage.getItem('namesSubmitted'));
+    } else if (maximumNames === nameCount) {
       console.log('Maximum Names Submitted');
+      return;
     }
   });
 });

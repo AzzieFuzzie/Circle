@@ -8,6 +8,8 @@ body {
   min-width: 100vw;
   overflow: hidden;
   font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 form {
@@ -30,5 +32,9 @@ form {
   position: absolute;
   bottom: 20px;
   left: 10px;
+  color: red;
+}
+
+.namesSubmitted-container {
   color: red;
 }
