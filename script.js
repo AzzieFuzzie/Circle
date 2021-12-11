@@ -86,7 +86,6 @@ form.addEventListener('submit', (e) => {
       console.log(circleRadius);
       circle0.radius = circleRadius;
     } else if (nameCount === maximumNames) {
-      alert('Maximum Names Submitted');
       return;
     }
   });
