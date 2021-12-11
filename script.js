@@ -15,7 +15,7 @@ const names = [
 const input = document.getElementById('text-input');
 const form = document.querySelector('form');
 const clear = document.getElementById('clear');
-const namesSubmittedP = document.getElementById('namesSubmitted-p');
+const namesSubmittedP = document.getElementById('namesSubmitted-p-span');
 
 // Class constructor for circle creation
 class Circle {
@@ -57,7 +57,7 @@ canvas.style.setProperty('height', CANVAS_HEIGHT + 'px');
 const ctx = canvas.getContext('2d');
 let circleRadius = localStorage.radius;
 let nameCount = localStorage.getItem('namesSubmitted');
-const maximumNames = 5;
+const maximumNames = 150;
 
 // Circle
 const circle0 = new Circle({
@@ -71,18 +71,22 @@ let oldTime = 0;
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+
   names.forEach((name) => {
-    if (input.value === name) {
-      circle0.radius = parseInt(circle0.radius) + 3;
-      circleRadius = localStorage.radius = parseInt(circle0.radius) + 3;
-      console.log(circleRadius);
-      circle0.radius = circleRadius;
+    if (input.value === name && Number(nameCount) < maximumNames) {
       nameCount = Number(nameCount) + +1;
       localStorage.setItem('namesSubmitted', nameCount);
       namesSubmittedP.innerHTML = nameCount;
       console.log(localStorage.getItem('namesSubmitted'));
-    } else if (maximumNames === nameCount) {
-      console.log('Maximum Names Submitted');
+
+      circle0.radius = parseInt(circle0.radius) + canvas.width / 500;
+      console.log(window.innerWidth / 150);
+      circleRadius = localStorage.radius =
+        parseInt(circle0.radius) + canvas.width / 500;
+      console.log(circleRadius);
+      circle0.radius = circleRadius;
+    } else if (nameCount === maximumNames) {
+      alert('Maximum Names Submitted');
       return;
     }
   });
