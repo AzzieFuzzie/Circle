@@ -42,11 +42,6 @@ let CANVAS_HEIGHT = window.innerHeight;
 const WW = window.innerWidth / 2;
 const WH = window.innerHeight / 2;
 
-window.addEventListener('resize', () => {
-  CANVAS_WIDTH = window.innerWidth;
-  CANVAS_HEIGHT = window.innerHeight;
-});
-
 const canvas = document.getElementById('canvas');
 
 const dpr = devicePixelRatio;
@@ -55,6 +50,11 @@ canvas.height = CANVAS_HEIGHT * devicePixelRatio;
 
 canvas.style.setProperty('width', CANVAS_WIDTH + 'px');
 canvas.style.setProperty('height', CANVAS_HEIGHT + 'px');
+
+window.addEventListener('resize', () => {
+  CANVAS_WIDTH = window.innerWidth;
+  CANVAS_HEIGHT = window.innerHeight;
+});
 
 // Variables
 const ctx = canvas.getContext('2d');
